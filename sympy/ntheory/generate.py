@@ -13,6 +13,7 @@ from array import array as _array
 from .primetest import isprime
 from sympy.core.compatibility import as_int, range
 
+
 def _arange(a, b):
     ar = _array('l', [0]*(b - a))
     for i, e in enumerate(range(a, b)):
@@ -230,6 +231,8 @@ def prime(nth):
         29
         >>> prime(1)
         2
+        >>> prime(100000)
+        1299709
 
         See Also
         ========
@@ -263,7 +266,6 @@ def prime(nth):
             n_primes += 1
         N += 1
     return N - 1
-
 
 
 def primepi(n):
@@ -359,8 +361,8 @@ def primepi(n):
                 arr2[j] -= arr2[st] - p
             else:
                 arr2[j] -= arr1[n // st] - p
-        lim2 = min(lim, i * i - 1)
-        for j in range(lim,lim2, -1):
+        lim2 = min(lim, i*i - 1)
+        for j in range(lim, lim2, -1):
             arr1[j] -= arr1[j // i] - p
     return arr2[1]
 
